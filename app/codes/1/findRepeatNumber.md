@@ -68,4 +68,32 @@
 * 时间复杂度 O(n)： 遍历数组使用 O(n)，每轮遍历的判断和交换操作使用 O(1)。
 * 空间复杂度 O(1)： 使用常数复杂度的额外空间。
 
+
+
+
+
+方法三： 利用一萝卜一个坑的思路
+
+大致解法都大同小异，遍历、对比就这两步，这个解法参照于"一个萝卜一个坑"的思路，非常简单。
+
+
+1.数组中的数字都是在0~n-1的范围内，可以声明一个长度为n 的布尔类型数组
+2.从头开始遍历这个数组，每次先检查该数字的"坑"是否被占用，若占用，直接返回，若没占用，将这个“坑”占住。
+
+
+```js
+ function getComplex(nums) {
+            let res = [],repeat = "", len = nums.length,i =0;
+            while(i<len){
+                if(res[nums[i]]){
+                    repeat = nums[i];
+                    break;
+                }
+                res[nums[i]] = true;
+            }
+            
+            return repeat
+        }
+```
+
 [更多思路](https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/solution/mian-shi-ti-03-shu-zu-zhong-zhong-fu-de-shu-zi-yua/)。
